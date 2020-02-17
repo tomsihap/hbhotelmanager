@@ -155,3 +155,7 @@ L'application est déjà bien structurée. Beaucoup de données sont écrites "e
 
 ## Points bonus
 1. Livraison du code sur Github avec un .gitignore pour ne pas avoir le dossier `vendor`: `2 points`
+
+
+## Livrable
+Le lien Github du projet partagé en privé au formateur (Aller dans Settings > Collaborators > ajouter `tomsihap`)
