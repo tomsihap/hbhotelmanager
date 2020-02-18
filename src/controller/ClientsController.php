@@ -47,6 +47,13 @@ class ClientsController extends AbstractController
     }
 
     public function delete(int $id) {
+
+        // Si une room ayant le client_id du client qu'on veut supprimer existe :
+        if ( !empty($this->container->getRoomManager()->findByField("client_id", $id)) ) {
+            $this->index();
+            return;
+        }
+
         $this->container->getClientManager()->delete($id);
         $this->index();
     }

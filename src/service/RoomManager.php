@@ -78,6 +78,21 @@ class RoomManager extends AbstractManager implements ManagerInterface {
      */
     public function findByField(string $field, string $value)
     {
+
+        $query = "SELECT * FROM room WHERE " . $field . " = :value";
+
+        $statement = $this->pdo->prepare($query);
+        $statement->execute(['value' => $value]);
+
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $rooms = [];
+
+        foreach($data as $d) {
+            $rooms[] = $this->arrayToObject($d);
+        }
+
+        return $rooms;
     }
 
     /**
