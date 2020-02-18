@@ -37,4 +37,38 @@ class RoomsController extends AbstractController {
 
         Header('Location: ' . $this->configuration['env']['base_path']);
     }
+
+    /**
+     * Éditer une room (ajouter un client)
+     * Route: POST /rooms/:id/edit
+     */
+    public function edit(int $id)
+    {
+        $this->container->getRoomManager()->update($id, $_POST);
+
+        $this->show($id);
+    }
+
+    /**
+     * Éditer une room (supprimer un client)
+     * Route: POST /rooms/:id/deleteClient
+     */
+    public function deleteClient(int $id)
+    {
+        $this->container->getRoomManager()->update($id, ['client_id' => null]);
+
+        $this->show($id);
+    }
+
+    /**
+     * Supprimer une room
+     * Route: POST /rooms/:id/delete
+     */
+    public function delete(int $id)
+    {
+        $this->container->getRoomManager()->delete($id);
+
+        Header('Location: ' . $this->configuration['env']['base_path']);
+
+    }
 }

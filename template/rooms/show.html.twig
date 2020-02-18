@@ -7,14 +7,14 @@ Gestionnaire d'hôtels Hb-HotelManager
 {% block content %}
 
 
-<a href="">
+<a href="{{ env.base_path }}">
     <i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la liste
 </a>
 <!-- CAS 1 : La chambre est innoccupée -->
 <div class="card mb-3">
     <div class="card-header">
         <strong>Gestion de la chambre # {{room.number}}</strong>
-        {% if room.userId %}
+        {% if room.clientId %}
             <span class="badge badge-danger">Occupée</span>
         {% else %}
             <span class="badge badge-success">Libre</span>
@@ -23,12 +23,12 @@ Gestionnaire d'hôtels Hb-HotelManager
     <div class="card-body">
 
 
-        {% if room.userId %}
+        {% if room.clientId %}
             <p>
-                Occupée par Emma Watson. <a href="" class="text-danger">Supprimer la reservation</a>
+                Occupée par Emma Watson. <a href="{{ env.base_path ~ '/rooms/' ~ room.id ~ '/deleteClient' }}" class="text-danger">Supprimer la reservation</a>
             </p>
         {% else %}
-            <form action="">
+            <form action="{{ env.base_path ~ '/rooms/' ~ room.id ~ '/edit' }}" method="post">
 
                 <div class="form-group">
                     <label for="formClient">Ajouter un client</label>
@@ -47,7 +47,7 @@ Gestionnaire d'hôtels Hb-HotelManager
 
     </div>
     <div class="card-footer">
-        <a href="#" class="btn btn-danger">
+        <a href="{{ env.base_path ~ '/rooms/' ~ room.id ~ '/delete' }}" class="btn btn-danger">
             <i class="fa fa-trash" aria-hidden="true"></i> Supprimer la chambre
         </a>
     </div>
