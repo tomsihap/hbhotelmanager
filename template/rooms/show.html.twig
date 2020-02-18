@@ -25,7 +25,7 @@ Gestionnaire d'hôtels Hb-HotelManager
 
         {% if room.clientId %}
             <p>
-                Occupée par Emma Watson. <a href="" class="text-danger">Supprimer la reservation</a>
+                Occupée par Emma Watson. <a href="{{ env.base_path ~ '/rooms/' ~ room.id ~ '/deleteClient' }}" class="text-danger">Supprimer la reservation</a>
             </p>
         {% else %}
             <form action="{{ env.base_path ~ '/rooms/' ~ room.id ~ '/edit' }}" method="post">
