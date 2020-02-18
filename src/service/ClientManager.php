@@ -62,9 +62,7 @@ class ClientManager extends AbstractManager implements ManagerInterface {
 
         $data = $statement->fetch(PDO::FETCH_ASSOC);
 
-        $client = $this->arrayToObject($data);
-
-        return $client;
+        return $this->arrayToObject($data);
     }
 
     /**
@@ -80,11 +78,14 @@ class ClientManager extends AbstractManager implements ManagerInterface {
      * @param array $data
      */
     public function create(array $data) {
-        $query = "INSERT INTO client(number) VALUES(:number)";
+        $query = "INSERT INTO client(firstname, lastname, entry_date, departure_date) VALUES(:firstname, :lastname, :entry_date, :departure_date)";
 
         $statement = $this->pdo->prepare($query);
         $statement->execute([
-            'number' => $data['number'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'entry_date' => $data['entry_date'],
+            'departure_date' => $data['departure_date'],
         ]);
     }
 
@@ -93,13 +94,15 @@ class ClientManager extends AbstractManager implements ManagerInterface {
      */
     public function update(int $id, array $data)
     {
-        $query = "UPDATE client SET number = :number, client_id = :client_id WHERE id = :id";
+        $query = "UPDATE client SET firstname = :firstname, lastname = :lastname, entry_date = :entry_date, departure_date = :departure_date WHERE id = :id";
 
         $statement = $this->pdo->prepare($query);
         $statement->execute([
             'id' => $id,
-            'number' => $data['number'],
-            'client_id'  => $data['client_id']
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'entry_date' => $data['entry_date'],
+            'departure_date' => $data['departure_date'],
         ]);
 
     }

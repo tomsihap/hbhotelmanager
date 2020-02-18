@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Création d'un client
+{% endblock %}
+
+{% block content %}
+
+
+    <a href="{{ env.base_path }}">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> retour à l'accueil
+    </a>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <a href="{{ env.base_path ~ '/clients/new' }}" class="btn btn-primary">
+                Nouveau client
+            </a>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-striped">
+
+                <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Date d'arrivée</th>
+                    <th>Date de départ</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for client in clients %}
+                    <tr>
+                        <td>
+                            ({{ client.id }}) {{ client.firstname }} {{ client.lastname }}
+                        </td>
+                        <td>
+                            {{ client.entryDate | date('d/m/Y') }}
+                        </td>
+                        <td>
+                            {{ client.departureDate | date('d/m/Y') }}
+                        </td>
+                        <td>
+                            <a href="{{ env.base_path ~ '/clients/' ~ client.id }}" class="btn btn-primary">
+                                <i class="fa fa-search"></i>
+                            </a>
+
+                            <a href="{{ env.base_path ~ '/clients/' ~ client.id ~ '/edit' }}" class="btn btn-warning">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+
+                            <a href="{{ env.base_path ~ '/clients/' ~ client.id ~ '/delete' }}" class="btn btn-danger">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+{% endblock %}
