@@ -138,7 +138,7 @@ L'application est déjà bien structurée. Beaucoup de données sont écrites "e
 ### Page d'accueil
 1. Bouton créer un nouveau client `1 point`
 2. Bouton créer une nouvelle chambre `1 point`
-3. Lister toutes les chambres avec "numéro de chambre" et "occupée" `1 point`
+3. Lister toutes les chambres avec "numéro de chambre" et "réservée" `1 point`
 4. Si il y a un client, ajouter "date de départ/arrivée du client" `2 points`
 5. Bouton "Gestion de la clientèle" en navbar : doit afficher un liste de clients, et un CRUD complet (show, add, update, delete) `5 points`
 
