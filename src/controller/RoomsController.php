@@ -37,4 +37,15 @@ class RoomsController extends AbstractController {
 
         Header('Location: ' . $this->configuration['env']['base_path']);
     }
+
+    /**
+     * Éditer une room (ajouter ou supprimer un client)
+     * Route: POST /rooms/:id/edit
+     */
+    public function edit(int $id)
+    {
+        $this->container->getRoomManager()->update($id, $_POST);
+
+        Header('Location: ' . $this->configuration['env']['base_path']);
+    }
 }
