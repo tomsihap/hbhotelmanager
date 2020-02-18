@@ -100,8 +100,6 @@ class RoomManager extends AbstractManager implements ManagerInterface {
             'id' => $id,
             'client_id'  => $data['client_id']
         ]);
-        $statement->debugDumpParams();
-
 
     }
 

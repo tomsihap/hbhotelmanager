@@ -59,4 +59,16 @@ class RoomsController extends AbstractController {
 
         $this->show($id);
     }
+
+    /**
+     * Supprimer une room
+     * Route: POST /rooms/:id/delete
+     */
+    public function delete(int $id)
+    {
+        $this->container->getRoomManager()->delete($id);
+
+        Header('Location: ' . $this->configuration['env']['base_path']);
+
+    }
 }
