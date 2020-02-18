@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Création d'une chambre d'hôtel
+{% endblock %}
+
+{% block content %}
+
+
+<a href="">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la liste
+</a>
+<!-- CAS 1 : La chambre est innoccupée -->
+<div class="card mb-3">
+    <div class="card-body">
+
+        <form action="{{ env.base_path ~ '/rooms' }}" method="post">
+        
+            <div class="form-group">
+                <label for="formRoomNumber">Numéro de chambre</label>
+                <input type="number" id="formRoomNumber" class="form-control">
+            </div>
+
+            <button class="btn pull-right btn-primary">Créer la nouvelle</button>
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}
