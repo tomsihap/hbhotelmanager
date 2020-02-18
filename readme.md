@@ -19,7 +19,7 @@
 >firstname    varchar(100)
 >lastname     varchar(100)
 >entry_date   DATETIME
->leave_date   DATETIME
+>departure_date   DATETIME
 >```
 
 >```
