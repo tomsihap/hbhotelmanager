@@ -59,8 +59,8 @@ USE `hbhotelmanager`;
 
 CREATE TABLE `client` (
   `id` int(11) NOT NULL,
-  `firstname` int(11) NOT NULL,
-  `lastname` int(11) NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
   `entry_date` date NOT NULL,
   `departure_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
