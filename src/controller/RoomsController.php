@@ -46,7 +46,7 @@ class RoomsController extends AbstractController {
     {
         $this->container->getRoomManager()->update($id, $_POST);
 
-        Header('Location: ' . $this->configuration['env']['base_path']);
+        $this->show($id);
     }
 
     /**
@@ -57,6 +57,6 @@ class RoomsController extends AbstractController {
     {
         $this->container->getRoomManager()->update($id, ['client_id' => null]);
 
-        Header('Location: ' . $this->configuration['env']['base_path']);
+        $this->show($id);
     }
 }
